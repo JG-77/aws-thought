@@ -4,8 +4,8 @@ const AWS = require('aws-sdk');
 //modify the AWS config object that DynamoDB will use to connect to the local instance
 AWS.config.update({
   region: 'us-east-2',
-  endpoint: 'http://localhost:8000',
 });
+// removed endpoint --> dynamodb service object will point to the web service and not the local instance
 
 //create the DynamoDB service object
 const dynamodb = new AWS.DynamoDB({ apiVersion: '2012-08-10' });

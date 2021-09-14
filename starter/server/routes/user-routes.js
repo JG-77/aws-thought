@@ -6,7 +6,8 @@ const AWS = require('aws-sdk');
 const awsConfig = {
   region: 'us-east-2',
   //endpoint property in awsConfig points to the local DynamoDB instance
-  endpoint: 'http://localhost:8000',
+  //removed because we already assigned the access key and secret key, the service object can verify account authentication
+  //endpoint: 'http://localhost:8000',
 };
 AWS.config.update(awsConfig);
 //use the DocumentClient class to use native JavaScript objects to interface with the dynamodb service object
