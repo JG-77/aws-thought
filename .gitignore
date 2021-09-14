@@ -10,6 +10,9 @@
 package-lock.json
 starter/server/node_modules 
 node_modules
+/starter/server/node_modules
+
+
 
 # testing
 /coverage
