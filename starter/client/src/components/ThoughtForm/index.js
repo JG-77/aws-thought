@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const ThoughtForm = () => {
   const [formState, setFormState] = useState({
-    username: "",
-    thought: "",
+    username: '',
+    thought: '',
   });
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -19,14 +19,29 @@ const ThoughtForm = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
+    const postData = async () => {
+      //fetch function to send the form data to the endpoint in the body of the request
+      const res = await fetch('/api/users', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
+      const data = await res.json();
+      console.log(data);
+    };
+    postData();
+
     // clear form value
-    setFormState({ username: "", thought: "" });
+    setFormState({ username: '', thought: '' });
     setCharacterCount(0);
   };
 
   return (
     <div>
-      <p className={`m-0 ${characterCount === 280 ? "text-error" : ""}`}>
+      <p className={`m-0 ${characterCount === 280 ? 'text-error' : ''}`}>
         Character Count: {characterCount}/280
       </p>
       <form
