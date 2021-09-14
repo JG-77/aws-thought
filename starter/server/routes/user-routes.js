@@ -86,6 +86,7 @@ router.post('/users', (req, res) => {
   };
 
   // database call
+  //put method to add an item to the Thoughts tables
   dynamodb.put(params, (err, data) => {
     if (err) {
       console.error(
