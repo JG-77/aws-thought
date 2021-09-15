@@ -47,6 +47,7 @@ router.get('/users/:username', (req, res) => {
       '#un': 'username',
       '#ca': 'createdAt',
       '#th': 'thought',
+      '#img': 'image', // add the image attribute alias
     },
     //ExpressionAttributeValues property is assigned to req.params.username, which was received from the client
     ExpressionAttributeValues: {
@@ -54,7 +55,7 @@ router.get('/users/:username', (req, res) => {
       ':user': req.params.username,
     },
     //determines which attributes or columns will be returned
-    ProjectionExpression: '#th, #ca',
+    ProjectionExpression: '#un, #th, #ca, #img', // add the image to the database response
     //This property takes a Boolean value
     //default setting is true, which specifies the order for the sort key, which will be ascending
     //false so that the order is descending
@@ -83,6 +84,7 @@ router.post('/users', (req, res) => {
       //use the JavaScript native Date object to set the value of the createdAt property
       createdAt: Date.now(),
       thought: req.body.thought,
+      image: req.body.image, // add new image attribute
     },
   };
 

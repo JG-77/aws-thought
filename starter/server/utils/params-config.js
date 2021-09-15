@@ -17,6 +17,7 @@ const params = (fileName) => {
     //assign the buffer property of the image
     //buffer is temporary storage container of the image file. Once the buffer has been used, the temporary storage space is removed by multer
     Body: fileName.buffer,
+    ACL: 'public-read', // allow read access to this file
   };
 
   return imageParams;
